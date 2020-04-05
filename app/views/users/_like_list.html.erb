@@ -1,0 +1,19 @@
+<ul class="list-unstyled">
+  <% favorites.each do |book| %>
+    <li class="media mb-3">
+      <%= image_tag book.image.url(:thumb50), class: "mr-2 rounded"%>
+      <div class="media-body">
+        <div>
+          <%= link_to book.title, book_path(book.user) %> <span class="text-muted">投稿日 <%= book.created_at %></span>
+        </div>
+        <%= book.comment %>
+        <div class="d-flex flex-row">
+          <%= link_to "詳細", book_path(book), class: "btn btn-sm bg-secondary text-light" %>
+          <%= render 'favorite/favorite_button', book: book %>
+        </div>
+      </div>
+      
+    </li>
+  <% end %>
+  <%= paginate favorites %>
+</ul>

@@ -1,0 +1,29 @@
+<div class="text-center">
+  <h1>投稿ページ</h1></h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @book, local: true) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :title, '本のタイトル' %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :image, '本の画像' %>
+        <%= f.file_field :image, class: 'form-control' %>
+      </div>
+        
+        <div class="form-group">
+          <%= f.label :comment, 'comment' %>
+        <%= f.text_area :comment, class: 'form-control' %>
+        </div>
+
+      <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+    <% end %>
+
+  </div>
+</div>

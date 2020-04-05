@@ -1,0 +1,16 @@
+<% if users.any? %>
+<div class="row">
+  <ul class="list-unstyled">
+    <% users.each do |user| %>
+      <li class="media my-2">
+        <%= image_tag user.image.url(:thumb50), class:"mr-2 rounded" %>
+        <div class="media-body">  
+          <%= link_to user.name, user_path(user) %>
+          <%= render 'relationships/follow_button', user: user %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate users %>
+  </div>
+<% end %>

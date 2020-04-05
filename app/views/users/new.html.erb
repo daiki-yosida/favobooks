@@ -1,0 +1,30 @@
+<div class="text-center">
+  <h1>ユーザー登録</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.text_field :name, class: 'form-control', :placeholder => "名前を入力" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.email_field :email, class: 'form-control', :placeholder => "メールアドレスを入力" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password, class: 'form-control', :placeholder => "パスワードを入力" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, class: 'form-control', :placeholder => "パスワード再確認"%>
+      </div>
+
+      <%= f.submit 'ユーザー登録', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>
